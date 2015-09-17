@@ -5,6 +5,7 @@ public class InheritanceTest {
 		//kim.display();
 		
 		CMSExt hong = new CMSExt(2, "홍길동", 'B', "222-2222", "서울시 종로구");
-		hong.print();
+		//hong.print();
+		hong.display();
 	}
 }

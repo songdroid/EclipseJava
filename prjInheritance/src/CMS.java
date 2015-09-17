@@ -1,7 +1,7 @@
 public class CMS {
-	int no;
-	String name;
-	char level;
+	private int no;
+	private String name;
+	private char level;
 	String tel;
 	
 	public CMS(){}
