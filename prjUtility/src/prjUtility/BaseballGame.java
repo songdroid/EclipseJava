@@ -35,7 +35,7 @@ public class BaseballGame {
 			}
 		}
 		
-		System.out.println(com[0] + ", " + com[1] + ", " + com[2]);	
+		//System.out.println(com[0] + ", " + com[1] + ", " + com[2]);	
 		
 		// 사용자가 입력한 숫자와 컴퓨터의 숫자를 비교하여 처리
 		for(;;){
