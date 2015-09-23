@@ -1,29 +1,40 @@
-class ThreadDemo3 extends Thread{
+class ThreadDemo4 implements Runnable{
+	String name;
+	
+	public ThreadDemo4(String name) {
+		this.name = name;
+	}
+	
 	@Override
 	public void run() {
-		System.out.println("자식 스레드 시작");
+		System.out.println(name + " 자식 스레드 시작");
 		int cnt = 0;
 		do{
 			try {
-				sleep(500);
+				Thread.sleep(500);
 			} 
 			catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println("count : " + cnt);
+			System.out.println(name + ": count : " + cnt);
 			cnt++;
 		}while(cnt < 10);
-		System.out.println("자식 스레드 종료");
+		System.out.println(name + " 자식 스레드 종료");
 	}
 }
 
-public class ThreadTest3 {
+public class ThreadTest4 {
 	public static void main(String[] args) {
 		// TODO 스레드 예제3
 		System.out.println("메인 스레드 시작");
 		
-		ThreadDemo3 t1 = new ThreadDemo3();
-		t1.start();
+		ThreadDemo4 t1 = new ThreadDemo4("첫번째 자식");
+		ThreadDemo4 t2 = new ThreadDemo4("두번째 자식");
+		
+		Thread tt1 = new Thread(t1);
+		Thread tt2 = new Thread(t2);
+		tt1.start();
+		tt2.start();
 		
 		int cnt = 0;
 		do{

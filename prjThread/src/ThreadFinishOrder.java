@@ -1,7 +1,12 @@
-class ThreadDemo3 extends Thread{
+class ThreadDemo6 extends Thread{
+	ThreadDemo6(String name){
+		super(name);
+		start();
+	}
+	
 	@Override
 	public void run() {
-		System.out.println("자식 스레드 시작");
+		System.out.println(getName() + " 자식 스레드 시작");
 		int cnt = 0;
 		do{
 			try {
@@ -10,20 +15,20 @@ class ThreadDemo3 extends Thread{
 			catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println("count : " + cnt);
+			System.out.println(getName() + " count : " + cnt);
 			cnt++;
 		}while(cnt < 10);
-		System.out.println("자식 스레드 종료");
+		System.out.println(getName() + " 자식 스레드 종료");
 	}
 }
 
-public class ThreadTest3 {
+public class ThreadFinishOrder {
 	public static void main(String[] args) {
 		// TODO 스레드 예제3
 		System.out.println("메인 스레드 시작");
 		
-		ThreadDemo3 t1 = new ThreadDemo3();
-		t1.start();
+		ThreadDemo6 t1 = new ThreadDemo6("first");
+		ThreadDemo6 t2 = new ThreadDemo6("second");
 		
 		int cnt = 0;
 		do{
