@@ -59,7 +59,7 @@ class Data{
 
 public class CallByTest1 {
 	public void display(Data data){
-		System.out.println(data.a + ", " + data.b + ", " + data.c);
+		System.out.println(data.a + ", " + data.b + ", " + data.c + ", " + data.d);
 	}
 	
 	public static void main(String[] args) {

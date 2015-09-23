@@ -23,7 +23,7 @@ class ThreadDemo6 extends Thread{
 }
 
 public class ThreadFinishOrder {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO 스레드 예제3
 		System.out.println("메인 스레드 시작");
 		
@@ -40,7 +40,10 @@ public class ThreadFinishOrder {
 			}
 			System.out.print(".");
 			cnt++;
-		}while(cnt < 10);
+		}while(cnt < 10); //while(t1.isAlive() || t2.isAlive());
+		
+		t1.join();
+		t2.join();
 		
 		System.out.println("메인 스레드 종료");
 	}

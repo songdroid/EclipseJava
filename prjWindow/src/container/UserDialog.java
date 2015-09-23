@@ -9,7 +9,7 @@ import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class MessageDialog extends Dialog{
+class MessageDialog extends Dialog implements ActionListener{
 	String message;
 	Button btnClose;
 	
@@ -18,6 +18,7 @@ class MessageDialog extends Dialog{
 		message = msg;
 		
 		btnClose = new Button("Á¾·á");
+		btnClose.addActionListener(this);
 	}
 	
 	public void dialogUI(){
@@ -28,6 +29,11 @@ class MessageDialog extends Dialog{
 		setBackground(Color.LIGHT_GRAY);
 		setSize(300, 150);
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		dispose();		
 	}
 }
 
