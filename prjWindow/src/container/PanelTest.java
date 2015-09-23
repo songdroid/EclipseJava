@@ -45,8 +45,11 @@ public class PanelTest extends Frame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//System.out.println(e);
-		Button b = (Button)e.getSource();
-		String lab = b.getLabel();
+		
+		//Button b = (Button)e.getSource();
+		//String lab = b.getLabel();
+		
+		String lab = e.getActionCommand();
 		
 		if(lab.equals("패널2 보이기")){
 			p2.setVisible(true);
