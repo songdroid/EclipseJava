@@ -37,7 +37,8 @@ public class TextEventTest extends Frame implements TextListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		//area.setText(area.getText() + field.getText() + "\n");
-		area.setText(area.getText() + e.getKeyChar() + "\n");
+		if(e.getKeyChar() != KeyEvent.VK_BACK_SPACE)
+			area.setText(area.getText() + e.getKeyChar() + "\n");
 	}
 
 	@Override
