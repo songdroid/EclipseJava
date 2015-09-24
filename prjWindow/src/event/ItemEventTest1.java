@@ -71,10 +71,10 @@ public class ItemEventTest1 extends Frame implements ItemListener{
 		*/
 		
 		if(c.getState() == true){
-			area.setText( c.getLabel() + "이(가) 선택되었습니다.");
+			area.setText( area.getText() + c.getLabel() + "이(가) 선택되었습니다.\n");
 		}
 		else{
-			area.setText(c.getLabel() + "이(가) 해제되었습니다.");
+			area.setText(area.getText() + c.getLabel() + "이(가) 해제되었습니다.\n");
 		}
 	}
 	
