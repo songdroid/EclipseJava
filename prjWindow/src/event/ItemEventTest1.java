@@ -33,11 +33,49 @@ public class ItemEventTest1 extends Frame implements ItemListener{
 		
 		add("North", p);
 		add("Center", area);
+		
+		c1.addItemListener(this);
+		c2.addItemListener(this);
+		c3.addItemListener(this);
 	}
 	
 	@Override
 	public void itemStateChanged(ItemEvent e) {
+		Checkbox c = (Checkbox)e.getSource();
 		
+		/*
+		if(c.getLabel().equals("딸기")){
+			if(c.getState() == true){
+				area.setText("딸기가 선택되었습니다.");
+			}
+			else{
+				area.setText("딸기가 해제되었습니다.");
+			}
+		}
+		else if(c.getLabel().equals("사과")){
+			if(c.getState() == true){
+				area.setText("사과가 선택되었습니다.");
+			}
+			else{
+				area.setText("사과가 해제되었습니다.");
+			}
+		}
+		else if(c.getLabel().equals("초록색")){
+			if(c.getState() == true){
+				area.setText("초록색 선택되었습니다.");
+			}
+			else{
+				area.setText("초록색 해제되었습니다.");
+			}
+		}
+		*/
+		
+		if(c.getState() == true){
+			area.setText( c.getLabel() + "이(가) 선택되었습니다.");
+		}
+		else{
+			area.setText(c.getLabel() + "이(가) 해제되었습니다.");
+		}
 	}
 	
 	public static void main(String[] args) {
