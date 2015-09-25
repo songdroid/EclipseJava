@@ -18,17 +18,19 @@ public class TcpClient1 {
 		try{
 			client = new Socket(serverUrl, 9999);
 			
+			/*
 			InputStream istream = client.getInputStream();
 			DataInputStream distream = new DataInputStream(istream);
 			System.out.println(distream.readUTF());
 			
 			istream.close();
 			distream.close();
+			*/
 			
 			OutputStream ostream = client.getOutputStream();
 			DataOutputStream dostream = new DataOutputStream(ostream);
 			System.out.print("서버에 하고 싶은 말 : ");
-			String reply = scan.nextLine();
+			String reply = scan.next();
 			dostream.writeUTF(reply);
 			
 			ostream.close();

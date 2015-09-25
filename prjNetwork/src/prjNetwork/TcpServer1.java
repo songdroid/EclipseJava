@@ -20,14 +20,6 @@ public class TcpServer1 {
 				client = server.accept();
 				System.out.println(client.getInetAddress() + "가 접속했습니다. : " + client.getPort());
 				
-				OutputStream ostream = client.getOutputStream();
-				DataOutputStream dostream = new DataOutputStream(ostream);
-				dostream.writeUTF(client.getInetAddress() + 
-					"님 접속을 환영합니다.");
-				
-				ostream.close();
-				dostream.close();
-				
 				InputStream istream = client.getInputStream();
 				DataInputStream distream = new DataInputStream(istream);
 				System.out.println(distream.readUTF());
@@ -35,7 +27,15 @@ public class TcpServer1 {
 				istream.close();
 				distream.close();
 				
-				client.close();
+				/*
+				OutputStream ostream = client.getOutputStream();
+				DataOutputStream dostream = new DataOutputStream(ostream);
+				dostream.writeUTF(client.getInetAddress() + 
+					"님 접속을 환영합니다.");
+				
+				ostream.close();
+				dostream.close();
+				*/
 			}
 		}
 		catch(Exception err){
