@@ -1,6 +1,8 @@
 package prjNetwork;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -25,6 +27,14 @@ public class TcpServer1 {
 				
 				ostream.close();
 				dostream.close();
+				
+				InputStream istream = client.getInputStream();
+				DataInputStream distream = new DataInputStream(istream);
+				System.out.println(distream.readUTF());
+				
+				istream.close();
+				distream.close();
+				
 				client.close();
 			}
 		}
