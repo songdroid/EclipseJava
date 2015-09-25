@@ -1,10 +1,14 @@
 package swing;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
 
 public class SwingTest4 extends JFrame{
 	JLabel lab;
@@ -38,6 +42,22 @@ public class SwingTest4 extends JFrame{
 		
 		lab = new JLabel("여기에 선택한 항목이 나타납니다.");
 		add("South", lab);
+		
+		tree.addMouseListener(new MouseHandler());
+	}
+	
+	class MouseHandler extends MouseAdapter{
+		@Override
+		public void mousePressed(MouseEvent e) {
+			int selRow = tree.getRowForLocation(e.getX(), e.getY());
+			TreePath selPath = tree.getPathForLocation(e.getX(), e.getY());
+			
+			if(selRow != -1){
+				if(e.getClickCount() == 2){
+					lab.setText(selPath.getLastPathComponent().toString());
+				}
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
